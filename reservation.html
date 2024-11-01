@@ -31,6 +31,7 @@
 
     <!-- Modernizr JS for IE8 support of HTML5 elements and media queries -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
+   
 
 </head>
 <body data-spy="scroll" data-target="#navbar">
@@ -76,53 +77,58 @@
         </button>
 
         <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
+            <a class="navbar-brand navbar-brand-center d-flex align-items-center only-desktop" href="#">
+                <img src="img/aroos.jpg" alt="">
+            </a>
             <ul class="navbar-nav d-flex justify-content-between">
+                        
                 <li class="nav-item only-desktop">
+                    
                     <a class="nav-link" id="side-nav-open" href="#">
                         <span class="lnr lnr-menu"></span>
                     </a>
                 </li>
                 <div class="d-flex flex-lg-row flex-column">
                     <li class="nav-item active">
-                        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="about.html">About</a>
                     </li>
 
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          Special Dishes
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                          <a class="dropdown-item" href="special-dishes.html">Beef Steak Sauce</a>
-                          <a class="dropdown-item" href="special-dishes.html">Salmon Zucchini</a>
-                        </div>
-                    </li>
+                   
                 </div>
             </ul>
-            
-            <a class="navbar-brand navbar-brand-center d-flex align-items-center only-desktop" href="#">
-                <img src="img/logo.png" alt="">
-            </a>
+
             <ul class="navbar-nav d-flex justify-content-between">
                 <div class="d-flex flex-lg-row flex-column">
                     <li class="nav-item active">
                         <a class="nav-link" href="menu.html">Menu</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="team.html">Team</a>
-                    </li>
+                   
 
                     <li class="nav-item dropdown">
                         <a class="nav-link" href="reservation.html">Reservation</a>
                     </li>
+                   
+                           
+                      
                 </div>
-                <li class="nav-item">
-                    <a id="side-search-open" class="nav-link" href="#">
-                        <span class="lnr lnr-magnifier"></span>
-                    </a>
-                </li>
+                <a class="nav-link" href="https://www.facebook.com/aroos.resto/">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a class="nav-link" href="https://www.instagram.com/aroos_resto/">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a class="nav-link" href="https://wa.me/9656881518">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+                
+                <a class="nav-link">
+                    <i class="fas fa-phone"></i>
+                    <span>9656881518</span>
+                </a>
+                
             </ul>
         </div>
     </div>
@@ -146,7 +152,9 @@
                                 <input type="text" class="form-control" id="name" name="name" placeholder="Name">
                             </div>
                             <div class="col-md-12 form-group">
-                                <input type="text" class="form-control" id="email" name="email" placeholder="Email">
+                                <input type="email" class="form-control" id="email" name="email" placeholder="Email" required>
+                                <span class="error-message" id="email-error" style="display: none; color: red;">Please provide a valid email.</span>
+                                <!-- <input type="email" class="form-control" id="email" name="email" placeholder="youremail@example.com"> -->
                             </div>
                             <div class="col-md-12 form-group">
                                 <input type="number" class="form-control" id="phoneNumber" name="phoneNumber" placeholder="Phone">
@@ -254,7 +262,7 @@
                 <div class="col-lg-4">
                     <div class="footer-widget pl-lg-5 pl-0">
                         <h4>Newsletter</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                        <p>Subscribe for latest updates.</p>
                         <form id="newsletter">
                             <div class="form-group">
                                 <input type="email" class="form-control" id="emailNewsletter"
@@ -292,5 +300,45 @@
 
 	<!-- Main JS -->
 	<script src="js/app.min.js "></script>
+    <!-- document.getElementById('submit-button').addEventListener('click', function(event) {
+        event.preventDefault(); // Prevent form submission
+    
+        const emailInput = document.getElementById('email');
+        const emailError = document.getElementById('email-error');
+    
+        // Simple email regex pattern
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    
+        // Check if the email is valid
+        if (!emailPattern.test(emailInput.value)) {
+            emailError.style.display = 'block'; // Show error message
+            emailInput.classList.add('is-invalid'); // Optionally add a Bootstrap class for styling
+        } else {
+            emailError.style.display = 'none'; // Hide error message
+            emailInput.classList.remove('is-invalid'); // Remove invalid class
+    
+            // Here, you can proceed with form submission or further processing
+            alert('Form submitted successfully!');
+        }
+    }); -->
+    const emailInput = document.getElementById('email');
+const message = document.getElementById('message');
+const form = document.getElementById('myForm');
+
+form.addEventListener('submit', (event) => {
+  event.preventDefault(); // Prevent default form submission
+
+  const   
+ email = emailInput.value;
+  const   
+ emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  if (emailRegex.test(email)) {
+    message.textContent = 'Email is valid!';
+  } else {
+    message.textContent = 'Invalid email format.';
+  }
+});
+    
 </body>
 </html>
